@@ -2,9 +2,9 @@ package com.example.lugaluga.model;
 
 public class Produto {
 
-    private double valor;
-
     private String nome;
+
+    private double valor;
 
     private String descricao;
 
@@ -13,13 +13,6 @@ public class Produto {
     private String status;
 
 
-    public double getValor() {
-        return valor;
-    }
-
-    public void setValor(double valor) {
-        this.valor = valor;
-    }
 
     public String getNome() {
         return nome;
@@ -27,6 +20,14 @@ public class Produto {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public double getValor() {
+        return valor;
+    }
+
+    public void setValor(double valor) {
+        this.valor = valor;
     }
 
     public String getDescricao() {
@@ -52,9 +53,9 @@ public class Produto {
     public void setStatus(String status) {
         this.status = status;
     }
-    public Produto(double valor, String nome, String descricao, int quantidade, String status) {
-        this.valor = valor;
+    public Produto( String nome, double valor, String descricao, int quantidade, String status) {
         this.nome = nome;
+        this.valor = valor;
         this.descricao = descricao;
         this.quantidade = quantidade;
         this.status = status;
