@@ -56,3 +56,4 @@ public class AdapterProduto extends RecyclerView.Adapter<AdapterProduto.ViewHold
         }
     }
 }
+
