@@ -4,11 +4,17 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.lugaluga.R;
+import com.google.android.material.textfield.TextInputLayout;
+
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -26,19 +32,14 @@ public class FaleFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
+
+    private TextInputLayout inputEmail;
+
+
     public FaleFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment FaleFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static FaleFragment newInstance(String param1, String param2) {
         FaleFragment fragment = new FaleFragment();
         Bundle args = new Bundle();
@@ -60,7 +61,39 @@ public class FaleFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+        View view = inflater.inflate(R.layout.fragment_fale, container, false);
+
+        inputEmail = view.findViewById(R.id.input_email);
+
+        inputEmail.getEditText().addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                Pattern pattern;
+                Matcher matcher;
+                String EMAIL_PATTERN = "^[_A-Za-z0-9-]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
+                pattern = Pattern.compile(EMAIL_PATTERN);
+                CharSequence cs = (CharSequence) s;
+                matcher = pattern.matcher(cs);
+                if (!(matcher.matches() == true)) {
+                    inputEmail.setError("Invalid email");
+                } else {
+                    inputEmail.setError("");
+                }
+
+            }
+        });
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_fale, container, false);
+        return view;
     }
 }
