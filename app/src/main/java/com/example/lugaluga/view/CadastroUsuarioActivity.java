@@ -1,5 +1,6 @@
 package com.example.lugaluga.view;
 
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
