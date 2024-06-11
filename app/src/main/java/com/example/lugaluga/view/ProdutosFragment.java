@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.example.lugaluga.MainActivity;
 import com.example.lugaluga.R;
 import com.example.lugaluga.RecyclerItemClickListener;
+import com.example.lugaluga.controller.ProdutosController;
 import com.example.lugaluga.model.Produto;
 import com.example.lugaluga.view.adapter.AdapterProduto;
 
@@ -86,29 +87,9 @@ public class ProdutosFragment extends Fragment {
         return view;
     }
     public void CriarListaProdutos() {
+        ProdutosController produtosController = new ProdutosController(getContext());
+        produtoList.addAll(produtosController.carregaProdutos());
 
-        Produto produto;
-
-        produto = new Produto("Iphone 13", 200.00, "Iphone 13 64gb", 100, "Disponível");
-        produtoList.add(produto);
-        produto = new Produto("Fone de Ouvido Sem Fio", 236.00, "JBL,Fone de Ouvido Sem fio,Bluetooth", 30, "Disponível");
-        produtoList.add(produto);
-        produto = new Produto("Kit Carregador", 64.00, "Kit Carregador Super Turbo 45 w Dupla Entrada", 80, "Indisponível");
-        produtoList.add(produto);
-        produto = new Produto("Ipad Mini", 900.00, "Apple Ipad Mini (Wi-Fi,64gb) Rosa", 10, "Disponível");
-        produtoList.add(produto);
-        produto = new Produto("Apple Watch", 850.00, "Apple Watch SE GPS", 200, "Indisponível");
-        produtoList.add(produto);
-        produto = new Produto("Carregador Portátil", 199.00, "Carregador Portátil (Power Bank) Ultra Rápido ", 5, "Disponível");
-        produtoList.add(produto);
-        produto = new Produto("Notebook Lenovo", 950.00, "Notebook Lenovo IdeaPad 256gb ", 900, "Indisponível");
-        produtoList.add(produto);
-        produto = new Produto("Samsung Smart TV", 700.00, "Samsung Smart TV QLED 50 4K", 100, "Disponível");
-        produtoList.add(produto);
-        produto = new Produto("Mouse Sem Fio", 88.00, "Mouse Sem Fio com Bluetooth Recarregável ", 27, "Disponível");
-        produtoList.add(produto);
-        produto = new Produto("Teclado Gamer", 40.00, "Teclado Gamer Semi Mecânico Multimídia", 50, "Indisponível");
-        produtoList.add(produto);
     }
 
 }

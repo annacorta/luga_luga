@@ -38,6 +38,10 @@ public class Produto implements Parcelable {
         }
     };
 
+    public Produto() {
+
+    }
+
     public String getNome() {
         return nome;
     }
